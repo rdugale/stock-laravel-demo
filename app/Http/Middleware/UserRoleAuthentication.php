@@ -21,7 +21,11 @@ class UserRoleAuthentication
             return $next($request);
         }
 
-        return redirect('/');
+        if (!Auth::user() ) {
+            return redirect('/login');
+        }
+
+        return redirect('/')->with("error", "You Don't Have Permission to Access Add Stock Page");
 
         // old code :  return $next($request);
     }

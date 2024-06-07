@@ -5,30 +5,31 @@
 
   }
 
-  #main_menu ul li {
-    display: inline-block;
-    background-color: grey;
-
-    padding: 10px;
-
+  #main_menu ul a {
+  display: inline-block;
+  background-color: grey;
+  
+  padding: 10px;
+  
   }
-
-  #main_menu ul li:hover {
-    background-color: blue;
+  
+  #main_menu ul a:hover {
+  background-color: blue;
   }
-
-  #main_menu ul li:active {
-    background-color: green;
+  
+  #main_menu ul a li:active {
+  background-color: green;
   }
-
-  #main_menu ul li a {
-    color: white;
-    text-decoration: none;
+  
+  #main_menu ul a
+  {
+  color: white;
+  text-decoration: none;
   }
-
-  #main_menu {
-    background-color: grey;
-
+  
+  #main_menu{
+  background-color: grey;
+  
   }
 
   table,
@@ -189,9 +190,29 @@
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <nav id="main_menu">
   <ul>
-    <li><a href="{{url('/')}}">Dashboard</a></li>
-    <li><a href="{{url('stock_buy_sell')}}">Stock Buy/Sell</a></li>
-    <li><a href="{{url('add_stock')}}"> Add Stock</a></li>
+    <a href="{{url('/')}}">
+      Dashboard
+    </a>
+    <a href="{{url('stock_buy_sell')}}">
+      Stock Buy/Sell
+    </a>
+    <a href="{{url('add_stock')}}">
+      Add Stock 
+    </a>
+
+    @if(auth()->user())
+    <a href="{{url('dashboard')}}">
+      User Dashboard
+    </a>
+    @else
+    <a href="{{url('login')}}">
+      Login
+    </a>
+    <a href="{{url('register')}}">
+      Register
+    </a>
+    @endif
+
 
   </ul>
 
